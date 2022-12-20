@@ -13,7 +13,7 @@ pnpm i l3e7
 ## Usage
 
 ```js
-import le37 from 'le37'
+import * as le37 from 'le37'
 
 const str = le37.conver('Hello World')
 // H3110 W0r1d
@@ -26,7 +26,7 @@ console.log(str)
 
 What percentage of characters will be converted, default value is `1`
 
-### `map`
+### `rule`
 
 Rules for character conversion, there are two Built-in presets for you, default is `simple`
 
@@ -84,17 +84,32 @@ You can use it like this
 le37('hello', 'simple')
 ```
 
-or you can past you custom map
+or you can past you custom directory
 
 ```js
-const str = le37('hello', {
+const directory = {
   o: '0'
+}
+const str = le37.conver('hello', {
+  rule: 'custom',
+  directory,
 })
 
 // hell0
 console.log(str)
 ```
 
+if you use `custom`, it will be case-sensitive:
+
+```js
+// hell0 HELLO
+console.log(le37.conver('hello HELLO', {
+  rule: 'custom',
+  directory,
+}))
+```
+
+As the appeal code shows, upper case O will not be converted
 ## License
 
 [MIT](./LICENSE) License © 2022 [kkopite](https://github.com/action-hong)

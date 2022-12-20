@@ -13,4 +13,13 @@ describe('should work', () => {
   it('Hello World', () => {
     expect(conver('Hello World')).toMatchInlineSnapshot('"H3110 W0r1d"')
   })
+
+  it('custom', () => {
+    expect(conver('Hello World', {
+      rule: 'custom',
+      directory: {
+        o: '0',
+      },
+    })).toMatchInlineSnapshot('"Hell0 W0rld"')
+  })
 })
